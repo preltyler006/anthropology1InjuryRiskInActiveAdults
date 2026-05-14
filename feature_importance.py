@@ -45,7 +45,7 @@ for feat in FEATURES:
     results[feat] = dict(
         mean=mc.mean(),
         lo=lo, hi=hi,
-        width=.1 - (hi - lo),
+        width=(hi - lo),
         mc=mc,
     )
 
@@ -79,7 +79,7 @@ colors = [cmap(norm(w)) for w in widths]
 fig, ax = plt.subplots(figsize=(12, 6))
 fig.suptitle(
     f'Which Variable Best Predicts Injury?  —  Monte Carlo ({N_RUNS:,} trials each)\n'
-    f'Narrower simulated CI = more confident predictions = stronger predictor',
+    f'Wider simulated CI = predictor separates injured from uninjured athletes = stronger signal',
     fontsize=12, fontweight='bold'
 )
 
